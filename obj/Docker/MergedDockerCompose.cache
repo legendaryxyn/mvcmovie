@@ -1,0 +1,19 @@
+services:
+  mvcmovie:
+    build:
+      context: E:\Asp.netCore\MvcMovie
+      dockerfile: MvcMovie/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44325'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: mvcmovie
+    ports:
+    - published: 54456
+      target: 80
+    - published: 44325
+      target: 443
+    volumes:
+    - C:\Users\HX0010957\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\HX0010957\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'
